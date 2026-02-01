@@ -1,40 +1,24 @@
 # Old Age Home Website
 
-This project is a website for an old age home, designed to provide information and resources for residents, families, and the community.
+This project is a simple website designed for an old age home. It provides essential information and resources for residents, families, and staff.
 
 ## Project Structure
 
-```
-old-age-home-website
-├── src
-│   ├── css
-│   │   └── styles.css        # Styles for the website
-│   ├── js
-│   │   └── scripts.js        # JavaScript functionality
-│   ├── images                # Directory for images
-│   └── index.html            # Main HTML file
-├── .gitignore                # Files to ignore by Git
-└── README.md                 # Project documentation
-```
-
-## Features
-
-- **Responsive Design**: The website is designed to be accessible on various devices.
-- **Interactive Elements**: JavaScript functionality for a better user experience.
-- **Informative Sections**: Includes sections for Home, About Us, Services, Gallery, and Contact.
+- `index.html`: The main HTML document containing the structure of the webpage, including the header, footer, and main content sections.
+- `scripts.js`: JavaScript functionality for the website, including event listeners for interactive elements like the menu toggle.
+- `styles.css`: CSS styles that define the visual appearance of the webpage, including layout, colors, fonts, and responsive design.
 
 ## Setup Instructions
 
-1. Clone the repository:
-   ```
-   git clone <repository-url>
-   ```
-2. Navigate to the project directory:
-   ```
-   cd old-age-home-website
-   ```
-3. Open `src/index.html` in a web browser to view the website.
+1. Clone the repository or download the project files.
+2. Open `index.html` in a web browser to view the website.
+3. Modify `styles.css` to change the appearance as needed.
+4. Update `scripts.js` for any additional functionality or interactivity.
 
 ## Contributing
 
-Contributions are welcome! Please submit a pull request or open an issue for any suggestions or improvements.
+Feel free to contribute to this project by submitting issues or pull requests. Your feedback and suggestions are welcome!
+
+## License
+
+This project is open-source and available for anyone to use and modify.
