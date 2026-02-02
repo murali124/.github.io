@@ -1,7 +1,10 @@
 $(document).ready(function () {
     // Initial load
-    $('#content').hide().load('home.html', function () {
-        // Content Loaded
+    $('#content').hide().load('home.html', function (response, status, xhr) {
+        if (status == "error") {
+            var msg = "Sorry, there was an error loading the content: ";
+            $("#content").html("<div style='padding: 50px; text-align: center;'><h3>" + msg + xhr.status + " " + xhr.statusText + "</h3><p>If you are opening this file directly (file://), please use a Local Web Server (e.g., Live Server in VS Code) as browsers block dynamic content loading from local files.</p></div>");
+        }
     });
 
     // Splash Screen Logic

@@ -326,6 +326,8 @@ textarea:focus {
 
 .splash-logo {
     width: 500px;
+    max-width: 90vw;
+    /* Ensure it doesn't overflow small screens */
     height: auto;
     margin-bottom: 20px;
 }
