@@ -1,36 +1,49 @@
-$(document).ready(function() {
-    // Smooth page fade in
-    $('body').hide().fadeIn(1000);
-
-    // Click effect for the button
-    $('#main-cta').click(function() {
-        $(this).text("Let's go!");
-        alert("Welcome to the modern web!");
+$(document).ready(function () {
+    // Initial load
+    $('#content').hide().load('home.html', function () {
+        // Content Loaded
     });
 
-    // Hover effect for cards using jQuery
-    $('.card').hover(
-        function() { $(this).css("background-color", "#e8e8ed"); },
-        function() { $(this).css("background-color", "#f5f5f7"); }
-    );
+    // Splash Screen Logic
+    setTimeout(function () {
+        $('#splash-screen').fadeOut(800, function () {
+            // Optional: Animation after splash screen
+            $('#content').fadeIn(500);
+        });
+    }, 2500); // Show splash for 2.5 seconds
 
-    $('#contact-form').on('submit', function(e) {
-        e.preventDefault(); // Prevent page refresh
-        
-        // Hide the form and show success message
-        $(this).fadeOut(400, function() {
+    // Navigation Handler
+    $('.nav-links a').click(function (e) {
+        e.preventDefault();
+
+        var page = $(this).attr('href');
+
+        // Update Active State
+        $('.nav-links a').removeClass('active');
+        $(this).addClass('active');
+
+        // Load Content
+        $('#content').fadeOut(200, function () {
+            $(this).load(page, function () {
+                $(this).fadeIn(500);
+            });
+        });
+    });
+
+    // Delegated Event Handlers (since content is dynamic)
+
+    // Hero Button Click
+    $(document).on('click', '#main-cta', function () {
+        $(document).find("a[href='contact.html']").click();
+    });
+
+    // Contact Form Submit
+    $(document).on('submit', '#contact-form', function (e) {
+        e.preventDefault();
+
+        var $form = $(this);
+        $form.fadeOut(400, function () {
             $('#form-feedback').fadeIn();
         });
     });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  const path = window.location.pathname.replace(/\/$/, '');
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    const href = (a.getAttribute('href') || '').replace(/\/$/, '');
-    if (href && (path.endsWith(href) || (path === '' && href === 'index.html'))) {
-      a.classList.add('active');
-      a.setAttribute('aria-current', 'page');
-    }
-  });
 });
