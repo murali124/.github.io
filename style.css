@@ -127,15 +127,20 @@ nav {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('hero-bg.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('hero-bg.png');
+    /* Re-added image */
+    /* Reduced overlay darkness slightly */
+    background-size: 100% 100%;
+    /* Stretch to fit */
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    /* Fixed attachment causes issues on mobile, scroll is safer */
     /* Parallax-ish */
     color: white;
-    padding: 5vh 10%;
+    padding: 10vh 10%;
     /* More vertical spacing */
-    min-height: 25vh;
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -302,6 +307,21 @@ textarea:focus {
 
     .logo-text {
         align-items: center;
+    }
+
+    .hero {
+        min-height: 100vh;
+        /* Give it more height on mobile */
+        background-attachment: scroll;
+        /* Ensure full image loading */
+        background-size: 100% 100%;
+        /* Stretch on mobile too */
+        padding: 50px 5%;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+        /* Smaller text for mobile */
     }
 }
 
